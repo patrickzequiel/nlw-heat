@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
-import { AuthProvider } from './contexts/auth'
+import { AuthProvider } from './hooks/useAuth'
 import './styles/global.css'
 
 ReactDOM.render(
