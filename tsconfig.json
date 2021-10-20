@@ -6,6 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     //como usamos o typescript, o scrict não precisa nos avisar erros do código            /* Ensure that casing is correct in imports. */
     "strict": false,    
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,
+    "typeRoots": ["./src/@types", "node_modules/@types"]
   }
 }
