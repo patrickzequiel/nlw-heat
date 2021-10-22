@@ -3,5 +3,6 @@
     "workbench.preferredDarkColorTheme": "Omni",
     "workbench.settings.editor": "json",
     "workbench.fontAliasing": "antialiased",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.formatOnSave": true,
 }
