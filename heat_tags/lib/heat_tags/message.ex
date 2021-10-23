@@ -1,12 +1,10 @@
 defmodule HeatTags.Message do
   use Ecto.Schema
-
-  import Ecto.Changeset
-
-  # Changset é um conjunto de mudanças
   import Ecto.Changeset
 
   @required_params [:message, :username, :email]
+
+  @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
   schema "messages" do
     field :message, :string
@@ -23,5 +21,4 @@ defmodule HeatTags.Message do
     |> validate_length(:message, min: 1, max: 140)
     |> validate_format(:email, ~r/@/)
   end
-
 end

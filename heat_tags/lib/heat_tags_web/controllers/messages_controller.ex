@@ -1,11 +1,25 @@
 defmodule HeatTagsWeb.MessagesController do
   use HeatTagsWeb, :controller
 
+  alias HeatTags.Message
+  alias HeatTags.Messages.Create
+
   def create(conn, params) do
-    IO.inspect(params)
+    params
+    |> Create.call()
+    |> handle_create(conn)
+  end
 
-    text(conn, "Recebi a requisição")
+  defp handle_create({:ok, %Message{} = message}, conn) do
+    conn
+    |> put_status(:created)
+    |> render("create.json", message: message)
+  end
 
-    # Uma vez recebido as infos do post, inserir no banco de dados
+  defp handle_create({:error, %{result: result, status: status}}, conn) do
+    conn
+    |> put_status(status)
+    |> put_view(HeatTagsWeb.ErrorView)
+    |> render("error.json", result: result)
   end
 end
